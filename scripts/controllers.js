@@ -30,7 +30,6 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
     $scope.convertToStandard = function (tempUnit, degK) {
         $scope.selectedTempUnit = tempUnit;
-        console.log("Selected Unit:" + tempUnit);
         if (tempUnit === 'F') {
             return $scope.convertToFahrenheit(degK);
         } else {
