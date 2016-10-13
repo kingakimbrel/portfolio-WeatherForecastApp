@@ -1,0 +1,24 @@
+Forecast for {{city}}
+<hr/>
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="btn-group-sm">
+            <a ng-repeat="daysNum in DAYS" href="#/forecast/{{daysNum}}" class="btn btn-default" ng-class="{'btn-primary': days === daysNum}">{{daysNum}}</a>
+        </div>
+    </div>
+    <div class="pull-right">
+        <div class="btn-group-sm">
+            <button ng-repeat="tu in tempUnits " class="btn btn-default " ng-class="{ 'btn-primary': selectedTempUnit === tu} " ng-click="convertToStandard(tu) ">&deg{{tu}}</button>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row ">
+    <div ng-repeat="w in weatherResult.list ">
+        <div class="col-sm-3 col-md-3 ">
+            <weather-report w-day="w" convert-to-standard="convertToStandard(tempUnit, temp)" selected-temp-unit="selectedTempUnit" convert-to-date="convertToDate(date)" date-format="EEEE, MMMM d"></weather-report>
+        </div>
+    </div>
+</div>
